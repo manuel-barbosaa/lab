@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: frontend
+  name: frontend
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - image: httpd:alpine3.19
+          name: httpd
+  strategy:
+    type: RollingUpdate # default value, for clarity anyways
+    rollingUpdate:
+      maxUnavailable: 1 # rolling update one by one
+      maxSurge: 1 # max number of pods that can be created over the desired number of pods on the deployment (10 for now)
