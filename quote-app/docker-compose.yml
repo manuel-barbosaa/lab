@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  backend:
+    build: ./backend
+    container_name: quote-api
+    ports:
+      - "5001:5001" 
+    attach: false
+  frontend:
+    build: ./frontend
+    container_name: quote-frontend
+    ports:
+      - "5000:5000"
+    environment:
+      - BACKEND_URL=http://backend:5001/quote 
+    depends_on:
+      - backend
+    attach: false
