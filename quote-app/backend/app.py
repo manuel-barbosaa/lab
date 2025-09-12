@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, make_response
 import json
 import random
 
@@ -14,7 +14,9 @@ def load_quotes():
 def get_quote():
     quotes = load_quotes()
     quote = random.choice(quotes)
-    return jsonify(quote)
+    response = make_response(jsonify(quote))
+    response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0"
+    return response
 
 
 if __name__ == "__main__":
