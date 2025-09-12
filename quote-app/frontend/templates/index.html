@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random Quote</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .quote-container {
+            max-width: 600px;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+        }
+        
+        blockquote {
+            margin-bottom: 25px;
+        }
+        
+        blockquote p {
+            font-size: 1.8rem;
+            line-height: 1.4;
+            color: #333;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
+        blockquote footer {
+            font-size: 1.2rem;
+            color: #666;
+            font-weight: 500;
+        }
+        
+        small {
+            font-size: 0.9rem;
+            color: #888;
+            margin-top: 10px;
+            display: block;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            font-weight: 300;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .quote-container {
+                padding: 30px 25px;
+                margin: 15px;
+            }
+            
+            blockquote p {
+                font-size: 1.4rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .quote-container {
+                padding: 25px 20px;
+            }
+            
+            blockquote p {
+                font-size: 1.2rem;
+            }
+            
+            blockquote footer {
+                font-size: 1rem;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quote-container">
+        <h1>random quote of the day</h1>
+        <blockquote>
+            <p>"{{ quote.text }}"</p>
+            <footer>- {{ quote.author }}</footer>
+        </blockquote>
+        <small>refresh the page for a new quote</small>
+    </div>
+</body>
+</html>
